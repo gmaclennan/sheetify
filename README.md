@@ -164,9 +164,9 @@ const tree = html`
 document.body.appendChild(tree)
 ```
 
-Compile with browserify using `-t [ sheetify -u sheetify-cssnext ]`:
+Compile with browserify using `-t [ sheetify -t sheetify-cssnext ]`:
 ```sh
-$ browserify -t [ sheetify -u sheetify-cssnext ] index.js > bundle.js
+$ browserify -t [ sheetify -t sheetify-cssnext ] index.js > bundle.js
 ```
 
 Transforms the CSS into:
@@ -185,7 +185,7 @@ The following plugins are available:
 Browserify transforms accept either flags from the command line using
 [subargs](https://github.com/substack/subarg):
 ```sh
-$ browserify -t [ sheetify -u sheetify-cssnext ] index.js > bundle.js
+$ browserify -t [ sheetify -t sheetify-cssnext ] index.js > bundle.js
 ```
 
 Or the equivalent options by passing in a configuration object in the
@@ -194,14 +194,14 @@ JavaScript API:
 const browserify = require('browserify')
 
 const b = browserify(path.join(__dirname, 'transform/source.js'))
-b.transform('sheetify', { use: [ 'sheetify-cssnext' ] })
+b.transform('sheetify', { transform: [ 'sheetify-cssnext' ] })
 b.bundle().pipe(process.stdout)
 ```
 
 The following options are available:
 ```txt
 Options:
-  -u, --use    Consume a sheetify plugin
+  -t, --transform    Consume a sheetify plugin
 ```
 
 ## FAQ
